@@ -2,7 +2,10 @@
   "name": "@reduxjs/redux-devtools-extension-fork",
   "version": "2.13.8",
   "description": "Wrappers for Redux DevTools Extension.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/redux-devtools-extension-fork.esm.js",
+  "unpkg": "dist/redux-devtools-extension-fork.umd.min.js",
+  "types": "dist/typings.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/reduxjs/redux-devtools-extension"
