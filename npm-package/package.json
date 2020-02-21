@@ -1,6 +1,6 @@
 {
   "name": "@reduxjs/redux-devtools-extension-fork",
-  "version": "2.13.8",
+  "version": "0.0.0",
   "description": "Wrappers for Redux DevTools Extension.",
   "main": "dist/index.js",
   "module": "dist/redux-devtools-extension-fork.esm.js",
