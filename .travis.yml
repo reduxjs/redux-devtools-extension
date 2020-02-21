@@ -1,32 +1,12 @@
-sudo: required
-dist: trusty
 language: node_js
-node_js:
-  - "6"
-cache:
-  directories:
-    - $HOME/.yarn-cache
-    - node_modules
+node_js: node
 env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - google-chrome
-      - ubuntu-toolchain-r-test
-    packages:
-      - google-chrome-stable
-      - g++-4.8
-
+  - TYPESCRIPT_VERSION=rc
+  - TYPESCRIPT_VERSION=3.7
+  - TYPESCRIPT_VERSION=3.6
+  - TYPESCRIPT_VERSION=3.5
 install:
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
-  - npm install -g yarn
-  - yarn install
-
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start &
-  - sleep 3
-
-script:
-  - yarn test
+  - cd npm-package
+  - yarn --ignore-scripts
+  - yarn add typescript@$TYPESCRIPT_VERSION
+script: yarn prepare
