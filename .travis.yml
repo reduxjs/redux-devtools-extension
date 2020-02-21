@@ -7,6 +7,6 @@ env:
   - TYPESCRIPT_VERSION=3.5
 install:
   - cd npm-package
-  - npm ci --ignore-scripts
-  - npm install typescript@$TYPESCRIPT_VERSION
-script: npm run prepare
+  - yarn --ignore-scripts
+  - yarn add typescript@$TYPESCRIPT_VERSION
+script: yarn prepare
