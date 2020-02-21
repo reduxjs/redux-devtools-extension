@@ -1,16 +1,12 @@
-sudo: required
-dist: trusty
 language: node_js
-node_js:
-  - "10"
-cache:
-  directories:
-    - $HOME/.yarn-cache
-    - node_modules
-
+node_js: node
+env:
+  - TYPESCRIPT_VERSION=rc
+  - TYPESCRIPT_VERSION=3.7
+  - TYPESCRIPT_VERSION=3.6
+  - TYPESCRIPT_VERSION=3.5
 install:
-  - npm install -g yarn
-  - yarn install
-
-script:
-  - yarn test
+  - cd npm-package
+  - npm ci --ignore-scripts
+  - npm install typescript@$TYPESCRIPT_VERSION
+script: npm run prepare
