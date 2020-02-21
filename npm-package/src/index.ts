@@ -2,10 +2,13 @@ import { compose } from 'redux'
 
 export { EnhancerOptions } from './types'
 
+type ComposeWithDevTools = Window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']
+type DevToolsEnhancer = Window['__REDUX_DEVTOOLS_EXTENSION__']
+
 /**
  * @public
  */
-export const composeWithDevTools =
+export const composeWithDevTools: ComposeWithDevTools =
   typeof window !== 'undefined' &&
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -18,7 +21,7 @@ export const composeWithDevTools =
 /**
  * @public
  */
-export const devToolsEnhancer: typeof window['__REDUX_DEVTOOLS_EXTENSION__'] =
+export const devToolsEnhancer: DevToolsEnhancer =
   typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION__
     : function() {

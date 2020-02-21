@@ -6,16 +6,12 @@
 
 import { Action } from 'redux';
 import { ActionCreator } from 'redux';
-import { compose } from 'redux';
 
 // @public (undocumented)
-export const composeWithDevTools: {
-    (options: import("./types").EnhancerOptions): typeof compose;
-    <StoreExt, StateExt>(...funcs: import("redux").StoreEnhancer<StoreExt, {}>[]): import("redux").StoreEnhancer<StoreExt, {}>;
-} | (() => ((...args: any[]) => unknown) | undefined);
+export const composeWithDevTools: ComposeWithDevTools;
 
 // @public (undocumented)
-export const devToolsEnhancer: typeof window['__REDUX_DEVTOOLS_EXTENSION__'];
+export const devToolsEnhancer: DevToolsEnhancer;
 
 // @public (undocumented)
 export interface EnhancerOptions {
