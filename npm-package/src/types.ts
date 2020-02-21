@@ -170,15 +170,11 @@ export interface EnhancerOptions {
   traceLimit?: number
 }
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__(options: EnhancerOptions): StoreEnhancer<any>
+export interface DevToolsWindow {
+  __REDUX_DEVTOOLS_EXTENSION__(options: EnhancerOptions): StoreEnhancer<any>
 
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__(
-      options: EnhancerOptions
-    ): typeof compose
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__<StoreExt, StateExt>(
-      ...funcs: Array<StoreEnhancer<StoreExt>>
-    ): StoreEnhancer<StoreExt>
-  }
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__(options: EnhancerOptions): typeof compose
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__<StoreExt, StateExt>(
+    ...funcs: Array<StoreEnhancer<StoreExt>>
+  ): StoreEnhancer<StoreExt>
 }
