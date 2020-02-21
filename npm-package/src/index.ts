@@ -1,15 +1,15 @@
-import { compose } from 'redux'
+import { StoreEnhancer, compose } from 'redux'
 
-import { DevToolsWindow } from './types'
-export { EnhancerOptions, DevToolsWindow } from './types'
-
-type ComposeWithDevTools = DevToolsWindow['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']
-type DevToolsEnhancer = DevToolsWindow['__REDUX_DEVTOOLS_EXTENSION__']
+import { EnhancerOptions } from './types'
+export { EnhancerOptions } from './types'
 
 /**
  * @public
  */
-export const composeWithDevTools: ComposeWithDevTools =
+export const composeWithDevTools: {
+  (options: EnhancerOptions): typeof compose
+  <StoreExt>(...funcs: Array<StoreEnhancer<StoreExt>>): StoreEnhancer<StoreExt>
+} =
   typeof window !== 'undefined' &&
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -22,7 +22,9 @@ export const composeWithDevTools: ComposeWithDevTools =
 /**
  * @public
  */
-export const devToolsEnhancer: DevToolsEnhancer =
+export const devToolsEnhancer: {
+  (options: EnhancerOptions): StoreEnhancer<any>
+} =
   typeof window !== 'undefined' && (window as any).__REDUX_DEVTOOLS_EXTENSION__
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION__
     : function() {
