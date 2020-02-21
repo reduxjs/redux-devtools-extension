@@ -1,13 +1,13 @@
 {
-  "name": "redux-devtools-extension",
+  "name": "@reduxjs/redux-devtools-extension-fork",
   "version": "2.13.8",
   "description": "Wrappers for Redux DevTools Extension.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zalmoxisus/redux-devtools-extension"
+    "url": "https://github.com/reduxjs/redux-devtools-extension"
   },
-  "homepage": "https://github.com/zalmoxisus/redux-devtools-extension",
+  "homepage": "https://github.com/reduxjs/redux-devtools-extension",
   "author": "Mihail Diordiev <zalmoxisus@gmail.com> (https://github.com/zalmoxisus)",
   "license": "MIT",
   "peerDependencies": {
